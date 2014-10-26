@@ -1,11 +1,15 @@
 Given(/^i'm on the user sign up page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit new_user_registration_path
 end
 
 When(/^I create a new user$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in :name, :with => "Juan"
+  fill_in :email, :with => "juan86@hotmail.com"
+  fill_in :password, :with => "holahola"
+  #fill_in :password_confirmation, :with => "holahola"
+  click_button 'Sign up'
 end
 
 Then(/^should be redirected to my dashboard\.'$/) do
-  pending # express the regexp above with the code you wish you had
+  assert page.has_content?('successfully')
 end
